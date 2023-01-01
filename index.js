@@ -8,20 +8,18 @@ const getList = (flag) =>
     })
 
 getList(false).then((res) => {
-    console.log(res)
+    // console.log(res)
 })
     .catch((err) => {
-        console.log(err)
+        // console.log(err)
     })
 
 
-//  [a, [b, c, [d, e, f, [g, h, i, j]]]] => [a, b, c, d, e, f, g, h, i, j]
-// [[[[[]]]]]=> [] Flatten Array
 
 // { a: { b: { c: { d: { e: "ans" } } } } } => a.b.c => {d:{e:"ans"}}
 
 let obj = { a: { b: { c: { d: { e: "ans" } } } } }
-let path = "a.b.c.e.d"
+let path = "a.b.c"
 
 // first we take out a 
 // obj.a is a val for res
@@ -32,8 +30,7 @@ path = path.split(".")
 
 let res = { ...obj }
 for (var i = 0; i < path.length; i++) {
-    res = res[path[i]]
-
+    if (path[i]) res = res[path[i]]
 }
 console.log(res)
 
@@ -47,5 +44,16 @@ console.log(res)
 // !! - bang bang operator
 // && and and  ,
 //? - terinary ,
-// ?? - null operator  let name = null ?? "seena" 
+// ?? - null operator  let name = null ?? "seena"
+
+
+// problem 2 :-
+
+//  [a, [b, c, [d, e, f, [g, h, i, j]]]] => [a, b, c, d, e, f, g, h, i, j]
+// [[[[[]]]]]=> [] Flatten Array
+
+// const array = [a, [b, c, [d, e, f, [g, h, i, j]]]]
+
+
+
 
